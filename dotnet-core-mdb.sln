@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-core-mdb", "dotnet-core-mdb.csproj", "{128359A6-4C3B-43F7-969F-7E42BD7093DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{128359A6-4C3B-43F7-969F-7E42BD7093DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{128359A6-4C3B-43F7-969F-7E42BD7093DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{128359A6-4C3B-43F7-969F-7E42BD7093DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{128359A6-4C3B-43F7-969F-7E42BD7093DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22CB7048-144F-4062-9ED9-C5DB222A0B1B}
+	EndGlobalSection
+EndGlobal
