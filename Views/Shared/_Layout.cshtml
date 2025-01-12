@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 
 <head>
     <meta charset="utf-8" />
@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/fontawesome/css/all.min.css" />
     <link rel="stylesheet" href="~/lib/mdb/mdb.min.css" />
+    <link rel="stylesheet" href="~/lib/angular/angular-material.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/dotnet_core_mdb.styles.css" asp-append-version="true" />
 </head>
 
-<body>
+<body layout="column" ng-cloak>
     <header>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
@@ -99,7 +100,7 @@
         <!-- Navbar -->
     </header>
 
-    <main role="main" class="container p-3">
+    <main role="main" class="container p-3" flex>
         @RenderBody()
     </main>
 
@@ -112,6 +113,13 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/mdb/mdb.umd.min.js"></script>
+
+    <script src="~/lib/angular/angular.min.js"></script>
+    <script src="~/lib/angular/angular-animate.min.js"></script>
+    <script src="~/lib/angular/angular-aria.min.js"></script>
+    <script src="~/lib/angular/angular-messages.min.js"></script>
+    <script src="~/lib/angular/angular-material.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
