@@ -2,3 +2,26 @@ html {
   position: relative;
   height: 100%;
 }
+
+table td {
+  vertical-align: middle;
+}
+
+/* datatables */
+.dt-container{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+}
+
+.dt-container .content {
+  flex: 1;
+  overflow: auto;
+}
+
+.dt-container .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

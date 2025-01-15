@@ -1,6 +1,92 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div ng-controller="PrivacyCtrl" layout="column" class="h-100">
+    <table id="dataTable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+        (function () {
+            var dtOptions = {
+                dom: 'f<"content"t><"footer"lp>',
+                processing: true,
+            }
+            var dataTable = new DataTable('#dataTable', dtOptions)
+
+            $app.controller('PrivacyCtrl', ($scope, $http, $timeout, $compile) => {
+                $scope.onRefresh = () => {
+                    $scope.getProducts()
+                }
+
+                $scope.getProducts = () => {
+                    dataTable.processing(true)
+                    $http.get('https://dummyjson.com/products')
+                        .then(res => {
+                            const products = res.data.products
+                            $scope.dataTableInit(products)
+                        }).finally(() => {
+                            dataTable.processing(false)
+                        })
+                }
+
+                $scope.dataTableInit = (data) => {
+                    $timeout(() => {
+                        if (DataTable.isDataTable('#dataTable')) dataTable.destroy()
+                        dataTable = new DataTable('#dataTable', {
+                            ...dtOptions,
+                            data: data,
+                            columns: [
+                                {
+                                    data: 'brand',
+                                    render: (data) => data ?? ``
+                                },
+                                {
+                                    data: 'title'
+                                },
+                                {
+                                    data: 'description'
+                                },
+                                {
+                                    data: 'category'
+                                },
+                                {
+                                    data: 'price'
+                                },
+                                {
+                                    data: 'rating'
+                                },
+                                {
+                                    data: '',
+                                    render: () => `<button class="btn btn-primary" data-mdb-ripple-init ng-click="onRefresh()">Refresh</button>`
+                                }
+                            ],
+                            createdRow: (row, data, dataIndex) => {
+                                $compile(angular.element(row).contents())($scope)
+                            },
+                        })
+                    })
+                }
+
+                $scope.init = () => {
+                    $scope.getProducts()
+                }
+
+                $scope.init()
+            });
+        })();
+    </script>
+}
