@@ -33,6 +33,7 @@
                 }
 
                 $scope.getProducts = () => {
+                    dataTable.clear().draw()
                     dataTable.processing(true)
                     $http.get('https://dummyjson.com/products')
                         .then(res => {
