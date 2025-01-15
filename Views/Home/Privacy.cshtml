@@ -59,7 +59,8 @@
                                     data: 'title'
                                 },
                                 {
-                                    data: 'description'
+                                    data: 'description',
+                                    render: (data) => `<div data-mdb-tooltip-init title="${data}">${data}</div>`
                                 },
                                 {
                                     data: 'category'
@@ -75,9 +76,10 @@
                                     render: () => `<button class="btn btn-primary" data-mdb-ripple-init ng-click="onRefresh()">Refresh</button>`
                                 }
                             ],
-                            createdRow: (row, data, dataIndex) => {
-                                $compile(angular.element(row).contents())($scope)
-                            },
+                            drawCallback: () => {
+                                $compile(angular.element('tbody').contents())($scope)
+                                $('[data-mdb-tooltip-init]').tooltip()
+                            }
                         })
                     })
                 }
